@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>>Hello World 3</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+        <div><h3>Hello World!</h3></div>
+        <br/>
+        <div>
+            <h3 th:text="${message}">message</h3>
+        </div>
+
+        <div>
+            <form onsubmit="stateCheck">
+                <input> Year </input>
+                <input> State abbreviation </input>
+                <input> State name </input>
+                <submit>Submit</submit>
+            </form>
+
+            <h1>Form</h1>
+
+            <form action="#" th:action="@{/query}" th:object="${HelloWorldParamsModel}" method="post">
+                <p>ID: <input type="number" th:field="*{id}" /></p>
+                <p>First Name: <input type="text" th:field="*{firstname}" /></p>
+                <p>Last Name: <input type="text" th:field="*{lastname}" /></p>
+                <p>School: <input type="text" th:field="*{school}" /></p>
+                <p>House: <input type="text" th:field="*{house}" /></p>
+                <p>Guardian Firstname: <input type="text" th:field="*{guardianfirstname}" /></p>
+                <p>Guardian Lastname: <input type="text" th:field="*{guardianlastname}" /></p>
+                <p>Guardian Phone: <input type="text" th:field="*{phone}" /></p>
+                <p>Guardian Phone type: <input type="text" th:field="*{phoneType}" /></p>
+                <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+            </form>
+
+        </div>
+
+        <div>
+            <h1>Result</h1>
+            <h3 th:text="${result}">result</h3>
+            <h4>----</h4>
+            <p th:text="'id: ' + ${HelloWorldParamsModel.id}" />
+            <p th:text="'content: ' + ${HelloWorldParamsModel.lastname}" />
+            <a href="/greeting">Submit another message</a>
+        </div>
+
+    </body>
+</html>
